@@ -1,0 +1,76 @@
+---
+const { linkAdmision, name } = Astro.props;
+---
+
+<div class="topBar">
+  <div>
+    <a href="https://admision.ulagos.cl/" target="_blank"
+      ><img
+        src="https://res.cloudinary.com/doq82xcpd/image/upload/v1730396958/hcdm7gwagrz84vth9uem.svg"
+        alt="Ulagos Logo"
+      /></a
+    >
+  </div>
+  <div class="title"><h1>{name}</h1></div>
+  <button class="btn-admision"
+    ><a class="text" href={linkAdmision} target="_blank">Admisión</a></button
+  >
+</div>
+
+<style>
+  .topBar {
+    background-color: #00275e;
+    display: flex;
+    color: white;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px;
+  }
+  .title {
+    text-transform: uppercase;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .btn-admision {
+    padding: 11px 5px;
+    background-color: #295494;
+    outline: 3px #295494 solid;
+    outline-offset: -3px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+    width: 100px;
+    min-height: auto;
+  }
+
+  .btn-admision .text {
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    transition: 400ms;
+  }
+
+  .btn-admision:hover {
+    background-color: #ff4c00;
+    outline: 3px #ff4c00 solid;
+  }
+
+  .topBar a {
+    color: white;
+    font-size: 16px;
+  }
+
+  @media (max-width: 710px) {
+    .topBar .title h1 {
+      font-size: 32px;
+    }
+  }
+
+  @media (max-width: 710px) {
+    .topBar {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+</style>

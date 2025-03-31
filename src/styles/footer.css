@@ -1,0 +1,153 @@
+.footer {
+    background-color: #00275e;
+    color: #fff;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    width: 97%;
+    max-width: 1180px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.footer .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 0;
+    width: 66.66666667%;
+    gap: 5px;
+}
+
+.footer .col-md-4 {
+    margin: 20px;
+
+}
+
+.containerMedio .col-md-4 li a {
+    background: #00275e;
+    display: block;
+    border-radius: 50%;
+    height: 45px;
+    color: #fff;
+    text-align: center;
+    line-height: 45px;
+    font-size: 20px;
+    width: 45px;
+}
+
+.footer .col-md-4.line {
+    border-right: 1px solid #fff;
+    width: 45%;
+}
+
+.footer h4 {
+    margin-top: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 18px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer li a {
+    margin-bottom: 10px;
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #ccc;
+}
+
+.social-links {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.social-links li {
+    margin-right: 20px;
+}
+
+.social-links a {
+    font-size: 24px;
+    color: #fff;
+}
+
+.social-links a:hover {
+    color: #ccc;
+}
+
+.containerMedio {
+    padding: 40px 20px;
+    background: #1a3968;
+    width: 33.33333333%;
+}
+
+.row a {
+    font-weight: 100;
+}
+
+.brand-data .casaCentral {
+    font-weight: 700;
+}
+
+.brand-data p {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 3px;
+    margin-top: 0px;
+}
+
+@media (max-width: 965px) {
+
+    .footer .container {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .footer .row {
+        width: 100%;
+    }
+
+    .containerMedio {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 610px) {
+    .footer .col-md-4 {
+        width: 100%;
+    }
+
+    .footer .col-md-4.line {
+        border-right: 1px;
+        width: 100%;
+
+    }
+
+}
+
+@media (max-width: 340px) {
+    .footer .col-md-4 {
+        margin: 0;
+    }
+
+    .footer .row {
+        width: 90%;
+        gap: 45px;
+    }
+}
