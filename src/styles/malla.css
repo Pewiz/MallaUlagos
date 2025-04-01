@@ -1,0 +1,51 @@
+.malla-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 25px;
+    margin: 50px auto;
+    justify-content: center;
+    text-align: center;
+    width: 95%;
+  }
+  
+  .semester-column {
+    flex: 1;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+  }
+  
+  button.selected {
+    background-color: #4caf50; 
+    color: white;
+  }
+  
+  button.prev {
+    background-color: #FF4C00; 
+    color: white;
+  }
+  
+  button.next {
+    background-color: #2196f3; 
+    color: white;
+  }
+
+  .disable {
+    background-color: gray;
+    color: white;
+  }
+  .highlight {
+    border: 2px solid red;
+  }
+  

@@ -1,0 +1,28 @@
+---
+const { carrera } = Astro.props;
+---
+
+<div
+  class="rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:shadow-xl w-80"
+>
+  <div class="overflow-hidden relative">
+    <a
+      href={`/malla/${carrera.slug}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-white rounded"
+    >
+      <img
+        src={carrera.url_image || "/placeholder-image.jpg"}
+        alt={`Imagen de la carrera ${carrera.nombre}`}
+        class="min-w-80 min-h-72 object-cover"
+        loading="lazy"
+      />
+      <div
+        class="bg-[#000000b0] absolute bottom-0 w-full h-20 z-30 flex items-center justify-center"
+      >
+        <h3 class="text-lg font-bold">{carrera.nombre}</h3>
+      </div>
+    </a>
+  </div>
+</div>
