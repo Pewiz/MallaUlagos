@@ -11,10 +11,8 @@ const { linkAdmision, name } = Astro.props;
       /></a
     >
   </div>
-  <div class="title"><h1>{name}</h1></div>
-  <button class="btn-admision"
-    ><a class="text" href={linkAdmision} target="_blank">Admisión</a></button
-  >
+  <div class="title text-2xl"><h1>{name}</h1></div>
+  <a class="text" href={linkAdmision} target="_blank"><button class="btn-admision">Admisión</button></a>
 </div>
 
 <style>
@@ -25,14 +23,15 @@ const { linkAdmision, name } = Astro.props;
     justify-content: space-around;
     align-items: center;
     padding: 15px;
+    min-height: 87px;
   }
   .title {
     text-transform: uppercase;
-    font-size: 28px;
+    text-align: center;
     font-weight: bold;
   }
   .btn-admision {
-    padding: 11px 5px;
+    padding: 10px 5px;
     background-color: #295494;
     outline: 3px #295494 solid;
     outline-offset: -3px;
@@ -40,14 +39,14 @@ const { linkAdmision, name } = Astro.props;
     border: none;
     cursor: pointer;
     transition: 400ms;
-    width: 100px;
+    width: 95px;
     min-height: auto;
   }
 
-  .btn-admision .text {
+  .text .btn-admision {
     color: white;
-    font-weight: 700;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 14px;
     transition: 400ms;
   }
 
@@ -58,19 +57,21 @@ const { linkAdmision, name } = Astro.props;
 
   .topBar a {
     color: white;
-    font-size: 16px;
-  }
-
-  @media (max-width: 710px) {
-    .topBar .title h1 {
-      font-size: 32px;
-    }
+    font-size: 14px;
   }
 
   @media (max-width: 710px) {
     .topBar {
       flex-direction: column;
-      gap: 10px;
+      gap: 30px;
     }
+    .topBar a {
+    color: white;
+    font-size: 13px;
+  }
+  .btn-admision{
+    padding: 9px 5px;
+    width: 90px;
+  }
   }
 </style>

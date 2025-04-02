@@ -1,12 +1,17 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import type { GetStaticPaths } from "astro";
+import Malla from "../../components/Malla.jsx"
+import Topbar from "../../components/Topbar.astro";
+import Footer from "../../components/Footer.astro";
 
 // Definir el tipo Carrera
 interface Carrera {
   id: number;
   slug: string;
   nombre: string;
+  nombre_malla: string;
+  link_admision: string;
   descripcion: string;
 }
 
@@ -24,21 +29,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 // Tipamos Astro.props para evitar el error
 const { carrera } = Astro.props as { carrera: Carrera };
 
-// Obtener la malla curricular de la carrera
-const mallaResponse = await fetch(
-  `http://127.0.0.1:8000/api/carreras/carreras/${carrera.id}`
-);
-const malla = await mallaResponse.json();
 ---
 
 <Layout title={`Malla - ${carrera.nombre}`}>
-  <h1 class="text-3xl font-bold">{carrera.nombre}</h1>
-  <p>{carrera.descripcion}</p>
-
-  <h2 class="text-2xl mt-4">Malla Curricular</h2>
-  <ul>
-    {malla.ramos.map((ramo) => <li key={ramo.id}>{ramo.nombre}</li>)}
-  </ul>
-
-  <a href="/">Volver al inicio</a>
+  <Topbar linkAdmision={carrera.link_admision} name=`malla curricular ${carrera.nombre_malla}` />
+  <Malla carrera_id={carrera.id} client:load />
+  <Footer />
 </Layout>

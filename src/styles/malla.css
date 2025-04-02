@@ -24,6 +24,15 @@
     transition: background-color 0.3s;
     word-wrap: break-word; 
     overflow-wrap: break-word; 
+    background-color: #dbdbdb;
+    min-height: 75px;
+    color: black;
+    font-weight: 500;
+  }
+
+  h3{
+    font-size: larger;
+    font-weight: 700;
   }
   
   button.selected {

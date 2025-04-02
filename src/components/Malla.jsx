@@ -1,49 +1,23 @@
-import { useState, useEffect } from "react";
-import "../styles/malla.css";
+import { useState, useEffect } from 'react';
+import '../styles/malla.css'; 
 
-const Malla = ({ carreraId }) => {
+const Malla = ({carrera_id}) => {
   const [ramos, setRamos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [selectedRamos, setSelectedRamos] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(`/api/carreras/carreras/${carreraId}`);
-        
-        // Verifica si la respuesta es HTML (error)
-        const contentType = response.headers.get('content-type');
-        if (!contentType || !contentType.includes('application/json')) {
-          const text = await response.text();
-          throw new Error(`Respuesta inesperada: ${text.substring(0, 100)}...`);
-        }
-
-        const data = await response.json();
-        if (!data.ramos) {
-          throw new Error('La propiedad "ramos" no existe en la respuesta');
-        }
-
-        setRamos(data.ramos);
-      } catch (err) {
-        console.error('Error fetching data:', err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [carreraId]);
+    fetch(`/api/carreras/carreras/${carrera_id}`)
+      .then((response) => response.json())
+      .then((data) => setRamos(data.ramos));
+  }, []);
 
   const handleClick = (ramo) => {
     if (selectedRamos && selectedRamos.nombre === ramo.nombre) {
-      setSelectedRamos(null);
+      setSelectedRamos(null); 
     } else {
       setSelectedRamos(ramo);
     }
   };
-
   const insertHyphen = (text) => {
     return text.replace(/(Electromag)(netismo)/, "$1&shy;$2");
   };
@@ -53,36 +27,37 @@ const Malla = ({ carreraId }) => {
     const hasPrev = selectedRamos && selectedRamos.prev.includes(ramo.nombre);
     const hasNext = selectedRamos && selectedRamos.next.includes(ramo.nombre);
 
-    let buttonClass = "";
+    let buttonClass = '';
     if (isSelected) {
-      buttonClass = "selected";
+      buttonClass = 'selected';
     } else if (hasPrev) {
-      buttonClass = "prev";
+      buttonClass = 'prev';
     } else if (hasNext) {
-      buttonClass = "next";
+      buttonClass = 'next';
     }
 
     return (
-      <button
-        key={ramo.id}
-        className={buttonClass}
-        onClick={() => handleClick(ramo)}
-      >
+      <button key={ramo.nombre} className={buttonClass} onClick={() => handleClick(ramo)}>
         <span dangerouslySetInnerHTML={{ __html: insertHyphen(ramo.nombre) }} />
       </button>
     );
   };
 
-  // Obtener semestres únicos ordenados
-  const semesters = [...new Set(ramos.map((ramo) => ramo.semestre))].sort();
+  const semesters = ramos
+                    .map((ramo) => ramo.semestre)
+                    .filter((semestre, index, self) => self.indexOf(semestre) === index);
+
 
   return (
-    <div className="malla-grid">
-      {console.log("ramos:  " + ramos.nombre)}
-      {semesters.map((semestre) => (
-        <div key={semestre} className="semester-column">
-          <h3>Semestre {semestre}</h3>
-          {ramos.filter((ramo) => ramo.semestre === semestre).map(renderButton)}
+    <div className="malla-grid min-h-[1100px] pb-[920px] min-[611px]:pb-[700px] min-[966px]:pb-[500px]">
+      {semesters.map((semester) => (
+        <div key={semester} className="semester-column">
+          <h3>Semestre {semester}</h3>
+          {
+            ramos
+            .filter((ramo) => ramo.semestre === semester)
+            .map(renderButton)
+          }
         </div>
       ))}
     </div>
