@@ -16,7 +16,7 @@ const carreras = await response.json();
     name="Mallas Curriculares Ulagos "
   />
 
-  <div class="flex flex-wrap gap-5 my-10 mx-2.5 justify-center min-h-[1110px] pb-[920px] min-[611px]:pb-[700px] min-[966px]:pb-[500px]">
+  <div class="flex flex-wrap gap-5 my-10 mx-2.5 justify-center min-h-[1110px]  pb-[920px]  min-[340px]:pb-[970px] min-[966px]:pb-[500px]">
     {
       carreras.length > 0 ? (
         carreras.map((carrera) => <CarreraCard carrera={carrera} />)
