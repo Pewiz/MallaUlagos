@@ -5,7 +5,7 @@ const { carrera } = Astro.props;
 <div
   class="rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105 hover:shadow-xl w-80"
 >
-  <div class="overflow-hidden relative">
+  <div class="overflow-hidden relative h-full">
     <a
       href={`/malla/${carrera.slug}`}
       rel="noopener noreferrer"
@@ -14,7 +14,7 @@ const { carrera } = Astro.props;
       <img
         src={carrera.url_image || "/placeholder-image.jpg"}
         alt={`Imagen de la carrera ${carrera.nombre}`}
-        class="min-w-80 min-h-72 object-cover"
+        class="w-full h-full object-cover"
         loading="lazy"
       />
       <div

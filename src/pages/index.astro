@@ -4,11 +4,13 @@ import Footer from "../components/Footer.astro";
 import Topbar from "../components/Topbar.astro";
 import CarreraCard from "../components/CarreraCard.astro";
 
-const response = await fetch("http://127.0.0.1:8000/api/carreras/carreras");
+const response = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/carreras/carreras`);
+
+
 const carreras = await response.json();
 ---
 
-<Layout title="Index">
+<Layout title="Malla Ulagos">
   <Topbar
     linkAdmision="https://admision.ulagos.cl"
     name="Mallas Curriculares Ulagos "

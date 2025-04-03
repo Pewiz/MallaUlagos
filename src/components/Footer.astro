@@ -1,5 +1,5 @@
 ---
-
+import { InstagramIcon, FacebookIcon, YoutubeIcon } from '../assets/icons'
 ---
 
 <footer class="footer absolute bottom-0 w-full">
@@ -91,7 +91,7 @@
         </ul>
       </div>
     </div>
-    <div class="containerMedio">
+    <div class="containerMedio ">
       <div class="col-md-4">
         <img
           class="imgFooter"
@@ -104,21 +104,21 @@
               href="https://web.facebook.com/admision.ulagos?_rdc=1&_rdr"
               target="_blank"
               rel="noopener noreferrer"
-              ><i class="fa-brands fa-facebook-f" style="color: #ffffff;"></i></a>
+              ><FacebookIcon/></a>
           </li>
           <li>
             <a
               href="https://www.instagram.com/admision.ulagos/"
               target="_blank"
               rel="noopener noreferrer"
-              ><i class="fa-brands fa-instagram" style="color: #ffffff;"></i></a>
+              ><InstagramIcon/></a>
           </li>
           <li>
             <a
               href="https://www.youtube.com/channel/UC2iG8Kg8uOqa6sFMYH0jo1g"
               target="_blank"
               rel="noopener noreferrer"
-              ><i class="fa-brands fa-youtube" style="color: #ffffff;"></i></a>
+              ><YoutubeIcon/></a>
           </li>
         </ul>
         <div class="brand-data">
@@ -130,10 +130,14 @@
       </div>
     </div>
   </div>
+  <p class="text-sm absolute bottom-2 left-2 m-1">&copy; Creado por <a class="!text-green-400 font-semibold" href="https://github.com/Pewiz" target="_blank">David Osorio</a></p>
 </footer>
 
 <style>
-  .footer {
+
+
+
+.footer {
     background-color: #00275e;
     color: #fff;
   }
@@ -170,6 +174,9 @@
     line-height: 45px;
     font-size: 20px;
     width: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .footer .col-md-4.line {

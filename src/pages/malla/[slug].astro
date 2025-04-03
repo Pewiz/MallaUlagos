@@ -17,7 +17,7 @@ interface Carrera {
 
 // Obtener los slugs de todas las carreras en build time
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await fetch("http://127.0.0.1:8000/api/carreras/carreras");
+  const response = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/carreras/carreras`);
   const carreras: Carrera[] = await response.json();
 
   return carreras.map((carrera) => ({
