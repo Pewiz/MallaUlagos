@@ -59,7 +59,7 @@ const Malla = ({ carrera_id }) => {
 
   if (isLoading) {
     return (
-      <div className="loading-container pb-[920px] min-[611px]:pb-[700px] min-[966px]:pb-[500px]">
+      <div className="loading-container pb-[920px] h-[1500px] min-[611px]:pb-[700px] min-[611px]:h-[1300px] min-[966px]:pb-[500px] min-[966px]:h-[1100px] ">
         <div className="spinner"></div>
       </div>
     );
@@ -74,7 +74,7 @@ const Malla = ({ carrera_id }) => {
     );
   }
   return (
-    <div className="malla-grid min-h-[1100px] pb-[920px] min-[611px]:pb-[700px] min-[966px]:pb-[500px]">
+    <div className="malla-grid  pb-[920px]  min-[340px]:pb-[970px] min-[966px]:pb-[500px]">
       {semesters.map((semester) => (
         <div key={semester} className="semester-column">
           <h3>Semestre {semester}</h3>
