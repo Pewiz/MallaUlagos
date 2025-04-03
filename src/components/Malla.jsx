@@ -1,6 +1,5 @@
-import { useState, useEffect } from 'react';
-import '../styles/malla.css'; 
-
+import { useState, useEffect } from "react";
+import "../styles/malla.css";
 
 const Malla = ({ carrera_id }) => {
   const [ramos, setRamos] = useState([]);
@@ -37,17 +36,21 @@ const Malla = ({ carrera_id }) => {
     const hasPrev = selectedRamos && selectedRamos.prev.includes(ramo.nombre);
     const hasNext = selectedRamos && selectedRamos.next.includes(ramo.nombre);
 
-    let buttonClass = '';
+    let buttonClass = "";
     if (isSelected) {
-      buttonClass = 'selected';
+      buttonClass = "selected";
     } else if (hasPrev) {
-      buttonClass = 'prev';
+      buttonClass = "prev";
     } else if (hasNext) {
-      buttonClass = 'next';
+      buttonClass = "next";
     }
 
     return (
-      <button key={ramo.nombre} className={buttonClass} onClick={() => handleClick(ramo)}>
+      <button
+        key={ramo.nombre}
+        className={buttonClass}
+        onClick={() => handleClick(ramo)}
+      >
         <span dangerouslySetInnerHTML={{ __html: insertHyphen(ramo.nombre) }} />
       </button>
     );
@@ -55,7 +58,8 @@ const Malla = ({ carrera_id }) => {
 
   const semesters = ramos
     .map((ramo) => ramo.semestre)
-    .filter((semestre, index, self) => self.indexOf(semestre) === index);
+    .filter((semestre, index, self) => self.indexOf(semestre) === index)
+    .sort((a, b) => a - b);
 
   if (isLoading) {
     return (
@@ -68,8 +72,14 @@ const Malla = ({ carrera_id }) => {
   if (ramos.length === 0) {
     return (
       <div className=" h-[1500px] flex flex-col gap-10 items-center justify-center text-center pb-[920px] min-[611px]:pb-[700px] min-[611px]:h-[1300px] min-[966px]:pb-[500px] min-[966px]:h-[1100px] ">
-        <p className="text-xl font-semibold text-gray-600">Estamos trabajando para integrar la malla de tu carrera 💪</p>
-        <img className='rounded-md' src="/catComputer.gif" alt="cat at computer" />
+        <p className="text-xl font-semibold text-gray-600">
+          Estamos trabajando para integrar la malla de tu carrera 💪
+        </p>
+        <img
+          className="rounded-md"
+          src="/catComputer.gif"
+          alt="cat at computer"
+        />
       </div>
     );
   }
@@ -80,9 +90,7 @@ const Malla = ({ carrera_id }) => {
           <h3>Semestre {semester}</h3>
           {console.log(import.meta.env.PUBLIC_API_URL)}
           {console.log(`${API_URL}/${carrera_id}`)}
-          {ramos
-            .filter((ramo) => ramo.semestre === semester)
-            .map(renderButton)}
+          {ramos.filter((ramo) => ramo.semestre === semester).map(renderButton)}
         </div>
       ))}
     </div>
