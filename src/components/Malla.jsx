@@ -88,8 +88,6 @@ const Malla = ({ carrera_id }) => {
       {semesters.map((semester) => (
         <div key={semester} className="semester-column">
           <h3>Semestre {semester}</h3>
-          {console.log(import.meta.env.PUBLIC_API_URL)}
-          {console.log(`${API_URL}/${carrera_id}`)}
           {ramos.filter((ramo) => ramo.semestre === semester).map(renderButton)}
         </div>
       ))}
