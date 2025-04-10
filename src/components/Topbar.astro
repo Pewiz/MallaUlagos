@@ -12,7 +12,9 @@ const { linkAdmision, name } = Astro.props;
     >
   </div>
   <div class="title text-2xl"><h1>{name}</h1></div>
-  <a class="text" href={linkAdmision} target="_blank"><button class="btn-admision">Admisión</button></a>
+  <a class="text" href={linkAdmision} target="_blank"
+    ><button class="btn-admision">Admisión</button></a
+  >
 </div>
 
 <style>
@@ -66,12 +68,12 @@ const { linkAdmision, name } = Astro.props;
       gap: 30px;
     }
     .topBar a {
-    color: white;
-    font-size: 13px;
-  }
-  .btn-admision{
-    padding: 9px 5px;
-    width: 90px;
-  }
+      color: white;
+      font-size: 13px;
+    }
+    .btn-admision {
+      padding: 9px 5px;
+      width: 90px;
+    }
   }
 </style>

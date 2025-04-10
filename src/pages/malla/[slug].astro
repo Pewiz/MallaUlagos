@@ -1,11 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import type { GetStaticPaths } from "astro";
-import Malla from "../../components/Malla.jsx"
+import Malla from "../../components/Malla.jsx";
 import Topbar from "../../components/Topbar.astro";
 import Footer from "../../components/Footer.astro";
 
-// Definir el tipo Carrera
 interface Carrera {
   id: number;
   slug: string;
@@ -15,24 +14,26 @@ interface Carrera {
   descripcion: string;
 }
 
-// Obtener los slugs de todas las carreras en build time
 export const getStaticPaths: GetStaticPaths = async () => {
-  const response = await fetch(`${import.meta.env.PUBLIC_API_URL}/api/carreras/carreras`);
+  const response = await fetch(
+    `${import.meta.env.PUBLIC_API_URL}/api/carreras/carreras`
+  );
   const carreras: Carrera[] = await response.json();
 
   return carreras.map((carrera) => ({
     params: { slug: carrera.slug },
-    props: { carrera }, // Pasamos la carrera como prop
+    props: { carrera },
   }));
 };
 
-// Tipamos Astro.props para evitar el error
 const { carrera } = Astro.props as { carrera: Carrera };
-
 ---
 
 <Layout title={`Malla - ${carrera.nombre}`}>
-  <Topbar linkAdmision={carrera.link_admision} name=`malla curricular ${carrera.nombre_malla}` />
+  <Topbar
+    linkAdmision={carrera.link_admision}
+    name=`malla curricular ${carrera.nombre_malla}`
+  />
   <Malla carrera_id={carrera.id} client:load />
   <Footer />
 </Layout>
