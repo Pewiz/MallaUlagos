@@ -5,7 +5,7 @@ import { InstagramIcon, FacebookIcon, YoutubeIcon } from "../assets/icons";
 <footer class="footer absolute bottom-0 w-full">
   <div class="container">
     <div class="row">
-      <div class="col-md-4 line">
+      <div class="col-md-4 line ">
         <h4>Enlaces de Interés</h4>
         <ul>
           <li>
@@ -130,7 +130,7 @@ import { InstagramIcon, FacebookIcon, YoutubeIcon } from "../assets/icons";
       </div>
     </div>
   </div>
-  <p class="text-sm absolute bottom-2 left-2 m-1">
+  <p class="text-sm absolute bottom-2 left-2 m-1 copy-right">
     &copy; Creado por <a
       class="!text-green-400 font-semibold"
       href="https://github.com/Pewiz"
@@ -253,6 +253,32 @@ import { InstagramIcon, FacebookIcon, YoutubeIcon } from "../assets/icons";
     margin-top: 0px;
   }
 
+  @media(max-width: 1540px){
+    .col-md-4 a{
+      font-size: 12px !important;
+    }
+    .footer h4{
+      font-size: 16px;
+    }
+    .footer .col-md-4.line{
+      width: 35%;
+    }
+    .imgFooter{
+      max-width: 65% !important;
+    }
+    .brand-data p{
+      font-size: 12px;
+    }
+    .casaCentral{
+      font-size: 14px !important;
+    }
+    .copy-right{
+      font-size: 12px;
+    }
+    .footer .row{
+      padding: 35px 0;
+    }
+  }
   @media (max-width: 965px) {
     .footer .container {
       flex-wrap: wrap;

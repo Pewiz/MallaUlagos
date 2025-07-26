@@ -48,7 +48,7 @@ const Malla = ({ carrera_id }) => {
     return (
       <button
         key={ramo.nombre}
-        className={buttonClass}
+        className={`text-[12px] min-[1554px]:text-[15px] ${buttonClass}`}
         onClick={() => handleClick(ramo)}
       >
         <span dangerouslySetInnerHTML={{ __html: insertHyphen(ramo.nombre) }} />
@@ -87,7 +87,9 @@ const Malla = ({ carrera_id }) => {
     <div className="malla-grid  pb-[920px]  min-[340px]:pb-[970px] min-[966px]:pb-[500px]">
       {semesters.map((semester) => (
         <div key={semester} className="semester-column">
-          <h3>Semestre {semester}</h3>
+          <h3 className="!text-[16px] min-[1554px]:!text-lg ">
+            Semestre {semester}
+          </h3>
           {ramos.filter((ramo) => ramo.semestre === semester).map(renderButton)}
         </div>
       ))}

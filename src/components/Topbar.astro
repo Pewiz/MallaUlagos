@@ -62,6 +62,23 @@ const { linkAdmision, name } = Astro.props;
     font-size: 14px;
   }
 
+  @media(max-width: 1540px){
+     .topBar{
+      min-height: 70px;
+     }
+    .title{
+      font-size: large;
+    }
+    .text .btn-admision{
+      font-size: 11px;
+      width: 70px;
+      padding: 8px 3px;
+    }
+    .topBar a img{
+      width: 85%;
+    }
+  }
+
   @media (max-width: 710px) {
     .topBar {
       flex-direction: column;

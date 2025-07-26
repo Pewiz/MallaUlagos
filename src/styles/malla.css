@@ -1,6 +1,6 @@
 .malla-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
     grid-column-gap: 10px;
     grid-row-gap: 25px;
     margin: 30px auto 50px;
@@ -17,7 +17,7 @@
     width: 100%;
     padding: 10px;
     margin: 5px 0;
-    font-size: 16px;
+    /* font-size: 16px; */
     cursor: pointer;
     border: none;
     border-radius: 5px;
@@ -25,7 +25,7 @@
     word-wrap: break-word; 
     overflow-wrap: break-word; 
     background-color: #dbdbdb;
-    min-height: 75px;
+    min-height: 70px;
     color: black;
     font-weight: 500;
   }
@@ -78,4 +78,8 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-  
+  @media(max-width: 1540px){
+    button {
+      min-height: 60px;
+    }
+  }
