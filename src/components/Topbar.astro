@@ -1,20 +1,45 @@
 ---
-const { linkAdmision, name } = Astro.props;
+const { linkAdmision, name, showBackButton = false } = Astro.props;
 ---
 
 <div class="topBar">
-  <div>
+  <div class="left-section">
+    {
+      showBackButton && (
+        <a class="text ml-4" href="/">
+          <button class="btn-back">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-4 h-4 mr-1"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+              />
+            </svg>
+            Volver
+          </button>
+        </a>
+      )
+    }
     <a href="https://www.ulagos.cl/" target="_blank"
       ><img
         src="https://res.cloudinary.com/doq82xcpd/image/upload/v1730396958/hcdm7gwagrz84vth9uem.svg"
         alt="Ulagos Logo"
-      /></a
-    >
+      />
+    </a>
   </div>
   <div class="title text-2xl"><h1>{name}</h1></div>
-  <a class="text" href={linkAdmision} target="_blank"
-    ><button class="btn-admision">Admisión</button></a
-  >
+  <div class="right-section">
+    <a class="text" href={linkAdmision} target="_blank"
+      ><button class="btn-admision">Admisión</button></a
+    >
+  </div>
 </div>
 
 <style>
@@ -27,12 +52,32 @@ const { linkAdmision, name } = Astro.props;
     padding: 15px;
     min-height: 87px;
   }
+
+  .left-section,
+  .right-section {
+    display: flex;
+    align-items: center;
+    min-width: 200px;
+  }
+
+  .left-section {
+    gap: 40px;
+    justify-content: flex-end;
+  }
+
+  .right-section {
+    justify-content: flex-start;
+  }
+
   .title {
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
+    flex: 1;
   }
-  .btn-admision {
+
+  .btn-admision,
+  .btn-back {
     padding: 10px 5px;
     background-color: #295494;
     outline: 3px #295494 solid;
@@ -43,15 +88,18 @@ const { linkAdmision, name } = Astro.props;
     transition: 400ms;
     width: 95px;
     min-height: auto;
-  }
-
-  .text .btn-admision {
     color: white;
     font-weight: 500;
     font-size: 14px;
-    transition: 400ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
+  .btn-back:hover{
+    background-color: #6c757d;
+    outline: 3px #6c757d solid;
+  }
   .btn-admision:hover {
     background-color: #ff4c00;
     outline: 3px #ff4c00 solid;
@@ -62,33 +110,45 @@ const { linkAdmision, name } = Astro.props;
     font-size: 14px;
   }
 
-  @media(max-width: 1540px){
-     .topBar{
+  @media (max-width: 1540px) {
+    .topBar {
       min-height: 70px;
-     }
-    .title{
+    }
+    .title {
       font-size: large;
     }
-    .text .btn-admision{
+    .btn-admision,
+    .btn-back {
       font-size: 11px;
       width: 70px;
       padding: 8px 3px;
     }
-    .topBar a img{
+    .topBar a img {
       width: 85%;
+    }
+    .left-section,
+    .right-section {
+      min-width: 150px;
     }
   }
 
   @media (max-width: 710px) {
     .topBar {
       flex-direction: column;
-      gap: 30px;
+      gap: 20px;
+    }
+    .left-section,
+    .right-section {
+      flex-direction: column;
+      gap: 15px;
+      min-width: auto;
     }
     .topBar a {
       color: white;
       font-size: 13px;
     }
-    .btn-admision {
+    .btn-admision,
+    .btn-back {
       padding: 9px 5px;
       width: 90px;
     }

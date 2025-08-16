@@ -46,13 +46,34 @@ const Malla = ({ carrera_id }) => {
     }
 
     return (
-      <button
+      <div
         key={ramo.nombre}
-        className={`text-[12px] min-[1554px]:text-[15px] ${buttonClass}`}
+        className={`ramo-card ${buttonClass} cursor-pointer transition-all duration-200 hover:shadow-lg`}
         onClick={() => handleClick(ramo)}
       >
-        <span dangerouslySetInnerHTML={{ __html: insertHyphen(ramo.nombre) }} />
-      </button>
+        <div className="ramo-header">
+          <h4 className="ramo-title !text-[11px] min-[1554px]:!text-[13px] font-semibold leading-tight">
+            <span
+              dangerouslySetInnerHTML={{ __html: insertHyphen(ramo.nombre) }}
+            />
+          </h4>
+        </div>
+
+        <div className="ramo-credits">
+          <div className="credit-item">
+            <span className="credit-label">SCT</span>
+            <span className="credit-value">{ramo.sct || 0}</span>
+          </div>
+          <div className="credit-item">
+            <span className="credit-label">TP</span>
+            <span className="credit-value">{ramo.tp || 0}</span>
+          </div>
+          <div className="credit-item">
+            <span className="credit-label">TA</span>
+            <span className="credit-value">{ramo.ta || 0}</span>
+          </div>
+        </div>
+      </div>
     );
   };
 

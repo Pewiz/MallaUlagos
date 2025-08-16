@@ -30,6 +30,124 @@
     font-weight: 500;
   }
 
+  /* Nuevos estilos para las cards de ramos */
+  .ramo-card {
+    width: 100%;
+    margin: 5px 0;
+    border: none;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    min-height: 85px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+
+  .ramo-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+
+  .ramo-header {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .ramo-title {
+    margin: 0;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    color: #333;
+  }
+
+  .ramo-credits {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid #dee2e6;
+    padding-top: 4px;
+    margin-top: auto;
+  }
+
+  .credit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 9px;
+    min-width: 20px;
+  }
+
+  .credit-label {
+    font-weight: 600;
+    color: #6c757d;
+    margin-bottom: 1px;
+    font-size: 8px;
+  }
+
+  .credit-value {
+    font-weight: 700;
+    color: #495057;
+    font-size: 10px;
+  }
+
+  /* Estados de las cards */
+  .ramo-card.selected {
+    background-color: #4caf50;
+    border-color: #45a049;
+    color: white;
+  }
+
+  .ramo-card.selected .ramo-title,
+  .ramo-card.selected .credit-label,
+  .ramo-card.selected .credit-value {
+    color: white;
+  }
+
+  .ramo-card.selected .ramo-credits {
+    border-top-color: rgba(255,255,255,0.3);
+  }
+
+  .ramo-card.prev {
+    background-color: #FF4C00;
+    border-color: #e63900;
+    color: white;
+  }
+
+  .ramo-card.prev .ramo-title,
+  .ramo-card.prev .credit-label,
+  .ramo-card.prev .credit-value {
+    color: white;
+  }
+
+  .ramo-card.prev .ramo-credits {
+    border-top-color: rgba(255,255,255,0.3);
+  }
+
+  .ramo-card.next {
+    background-color: #2196f3;
+    border-color: #1976d2;
+    color: white;
+  }
+
+  .ramo-card.next .ramo-title,
+  .ramo-card.next .credit-label,
+  .ramo-card.next .credit-value {
+    color: white;
+  }
+
+  .ramo-card.next .ramo-credits {
+    border-top-color: rgba(255,255,255,0.3);
+  }
+
   h3{
     font-size: larger;
     font-weight: 700;
@@ -81,5 +199,41 @@
   @media(max-width: 1540px){
     button {
       min-height: 60px;
+    }
+    
+    .ramo-card {
+      min-height: 75px;
+      padding: 6px;
+    }
+    
+    .credit-item {
+      font-size: 8px;
+    }
+    
+    .credit-label {
+      font-size: 7px;
+    }
+    
+    .credit-value {
+      font-size: 9px;
+    }
+  }
+
+  @media(min-width: 1554px){
+    .ramo-card {
+      min-height: 95px;
+      padding: 10px;
+    }
+    
+    .credit-item {
+      font-size: 10px;
+    }
+    
+    .credit-label {
+      font-size: 9px;
+    }
+    
+    .credit-value {
+      font-size: 11px;
     }
   }
