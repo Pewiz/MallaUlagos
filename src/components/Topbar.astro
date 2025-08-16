@@ -6,7 +6,7 @@ const { linkAdmision, name, showBackButton = false } = Astro.props;
   <div class="left-section">
     {
       showBackButton && (
-        <a class="text ml-4" href="/">
+        <a class="text ml-4 btn-back-a" href="/">
           <button class="btn-back">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -151,6 +151,10 @@ const { linkAdmision, name, showBackButton = false } = Astro.props;
     .btn-back {
       padding: 9px 5px;
       width: 90px;
+    }
+
+    .btn-back-a{
+      display: none;
     }
   }
 </style>
