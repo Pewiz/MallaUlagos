@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer.astro";
 import Topbar from "../components/Topbar.astro";
-import CarreraCard from "../components/CarreraCard.astro";
+import CarreraContainer from "../components/CarreraContainer.jsx";
 
 const response = await fetch(
   `${import.meta.env.PUBLIC_API_URL}/api/carreras/carreras`
@@ -17,19 +17,7 @@ const carreras = await response.json();
     name="Mallas Curriculares Ulagos "
   />
 
-  <div
-    class="flex flex-wrap gap-5 my-10 mx-2.5 justify-center min-h-[1110px] pb-[920px] min-[340px]:pb-[970px] min-[966px]:pb-[500px]"
-  >
-    {
-      carreras.length > 0 ? (
-        carreras.map((carrera) => <CarreraCard carrera={carrera} />)
-      ) : (
-        <p class="text-center col-span-full py-12 text-gray-500">
-          No se encontraron carreras disponibles.
-        </p>
-      )
-    }
-  </div>
+  <CarreraContainer initialCarreras={carreras} client:load />
 
   <Footer />
 </Layout>
