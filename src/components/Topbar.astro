@@ -27,9 +27,10 @@ const { linkAdmision, name, showBackButton = false } = Astro.props;
         </a>
       )
     }
-    <a href="https://www.ulagos.cl/" target="_blank"
-      ><img
-        src="https://res.cloudinary.com/doq82xcpd/image/upload/v1730396958/hcdm7gwagrz84vth9uem.svg"
+    <a href="https://www.ulagos.cl/" target="_blank" 
+      >
+      <img
+        src="https://ik.imagekit.io/utjlrahw7/Malla/ulagos_bco-11-2417f4c3a259c48ab986171ec04a5ebd1e94a8d440747c7aff67b5621bb26418.png"
         alt="Ulagos Logo"
       />
     </a>
@@ -61,7 +62,7 @@ const { linkAdmision, name, showBackButton = false } = Astro.props;
   }
 
   .left-section {
-    gap: 40px;
+    gap: 20px;
     justify-content: flex-end;
   }
 
@@ -110,6 +111,11 @@ const { linkAdmision, name, showBackButton = false } = Astro.props;
     font-size: 14px;
   }
 
+  .topBar a img {
+    width: 120px;
+    height: auto;
+  }
+
   @media (max-width: 1540px) {
     .topBar {
       min-height: 70px;
@@ -124,11 +130,14 @@ const { linkAdmision, name, showBackButton = false } = Astro.props;
       padding: 8px 3px;
     }
     .topBar a img {
-      width: 85%;
+      width: 90px;
     }
     .left-section,
     .right-section {
       min-width: 150px;
+    }
+    .left-section {
+      gap: 15px;
     }
   }
 
@@ -142,10 +151,14 @@ const { linkAdmision, name, showBackButton = false } = Astro.props;
       flex-direction: column;
       gap: 15px;
       min-width: auto;
+      justify-content: center;
     }
     .topBar a {
       color: white;
       font-size: 13px;
+    }
+    .topBar a img {
+      width: 95px;
     }
     .btn-admision,
     .btn-back {
